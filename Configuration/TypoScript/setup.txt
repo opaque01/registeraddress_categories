@@ -1,0 +1,23 @@
+config.tx_extbase{
+    objects {
+        AFM\Registeraddress\Domain\Model\Address.className = OD\RegisteraddressCategories\Domain\Model\Address
+    }
+    persistence{
+        classes{
+            OD\RegisteraddressCategories\Domain\Model\Address {
+                mapping {
+                    tableName = tt_address
+                    recordType = Tx_Registeraddress_Address
+                    columns {
+                        module_sys_dmail_category.mapOnProperty = moduleSysDmailCategory
+                    }
+                }
+            }
+            DMK\Myext\Domain\Model\NewsletterCategory {
+                mapping {
+                    tableName = sys_dmail_category
+                }
+            }
+        }
+    }
+}
