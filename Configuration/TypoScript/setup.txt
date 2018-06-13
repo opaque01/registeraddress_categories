@@ -13,7 +13,7 @@ config.tx_extbase{
                     }
                 }
             }
-            DMK\Myext\Domain\Model\NewsletterCategory {
+            OD\RegisteraddressCategories\Domain\Model\NewsletterCategory {
                 mapping {
                     tableName = sys_dmail_category
                 }

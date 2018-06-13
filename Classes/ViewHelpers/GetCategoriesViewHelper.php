@@ -1,23 +1,24 @@
 <?php
 
 namespace OD\RegisteraddressCategories\ViewHelpers;
+use TYPO3\CMS\Core\Database\DatabaseConnection;
 
 class GetCategoriesViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
-
+    
     /**
-     * @return void
+     * TYPO3 Database connection
+     *
+     * @var DatabaseConnection
      */
-    public function initializeArguments() {
-        $this->registerArgument('table', 'string', 'The table of the record.', false, 'tt_content');
-        $this->registerArgument('uid', 'int', 'The uid of the record.', true);
-    }
- 
+    protected $databaseConnection;
+    
     /**
-     * @return array|bool
+     * @return string
      */
     public function render() {
-        $result = BackendUtility::getRecord($this->arguments['table'], $this->arguments['uid']);
-        return (empty($result) === false) ? $result : false;
+        $settings = $this->renderingContext->getVariableProvider()->get('settings');
+        $categoryPid = $settings['categoriesStoragePid'];
+        $result = $this->databaseConnection->exec_SELECTgetRows('category, pid', 'sys_dmail_category','pid='.(int)$categoryPid );
+        return $result;
     }
-
 }
