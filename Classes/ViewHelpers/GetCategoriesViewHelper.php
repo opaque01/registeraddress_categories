@@ -13,7 +13,7 @@ class GetCategoriesViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractV
     protected $databaseConnection;
     
     /**
-     * @return string
+     * @return array
      */
     public function render() {
         $settings = $this->renderingContext->getVariableProvider()->get('settings');
