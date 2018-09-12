@@ -11,6 +11,11 @@
             "OD\\RegisteraddressCategories\\": "Classes"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "OD\\RegisteraddressCategories\\Tests\\": "Tests"
+        }
+    },
     "replace": {
         "registeraddress_categories": "self.version",
         "typo3-ter/registeraddress-categories": "self.version"

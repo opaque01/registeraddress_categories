@@ -1,3 +1,2 @@
-# First try to implement directmail categories to registeraddress
+# TYPO3 Extension which implement directmail categories to registeraddress
 
-Work just in progress!
