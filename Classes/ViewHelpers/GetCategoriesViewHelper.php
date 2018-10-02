@@ -15,15 +15,16 @@ class GetCategoriesViewHelper extends AbstractViewHelper {
      */
     public function render() {
         
+        if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('fh_debug')) {
+            debugBegin();
+            debug ($_REQUEST, '$_REQUEST');
+        }
         
-        debugBegin();
-        
-        debug ($_REQUEST, '$_REQUEST');
         
         $settings = $this->renderingContext->getVariableProvider()->get('settings');
         $categoryPid = $settings['categoriesStoragePid'];
 
-//        $result = $this->getDatabase()->exec_SELECTgetRows('uid', 'sys_dmail_category', 'pid=' . (int) $categoryPid);
+        //$result = $this->getDatabase()->exec_SELECTgetRows('uid', 'sys_dmail_category', 'pid=' . (int) $categoryPid);
 
         //$result = $this->getDatabase()->exec_SELECTgetRows('uid,category' , 'sys_dmail_category', 'pid>0');
         
@@ -31,18 +32,13 @@ class GetCategoriesViewHelper extends AbstractViewHelper {
         $result = $this->getDatabase()->exec_SELECTgetRows('uid,category' , 'sys_dmail_category', 'pid>0' . $cObjRenderer->enableFields('sys_dmail_category') );
         
         
-        
-        //debug($settings,"$settings settings");
-        
-        //debug($categoryPid,"$categoryPid page ID");
-        
-        debug($result, 'render $result');
-        
-        debugEnd();
-        
+        if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('fh_debug')) {
+            //debug($settings,"$settings settings");
+            //debug($categoryPid,"$categoryPid page ID");
+            debug($result, 'render $result');
+            debugEnd();
+        }
         return $result;
-
-
     }
 
     /**
