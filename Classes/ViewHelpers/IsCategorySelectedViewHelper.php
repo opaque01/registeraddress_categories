@@ -14,13 +14,14 @@ class IsCategorySelectedViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abst
     public function render($categoryUid)
     {
 
-       debugBegin();
-debug ($categoryUid, 'render $categoryUid');
-        debug ($_REQUEST, '$_REQUEST');
-
+       if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('fh_debug')) {
+         debugBegin();
+         debug ($categoryUid, 'render $categoryUid');
+         debug ($_REQUEST, '$_REQUEST');
+       }
         $request = $this->controllerContext->getRequest()->getOriginalRequest();
 
-    //    debug($request,"$request renderfunktion");
+    
         
         // if form is not submitted the default is unchecked
         if (!$request) {
@@ -29,10 +30,10 @@ debug ($categoryUid, 'render $categoryUid');
             $checked = in_array($categoryUid, $request->getArgument('newAddress')['moduleSysDmailCategory']);
         }
 
-       debug($checked, 'render $checked ende');
-        
-       debugEnd();
-        
-        return $checked;
+       if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('fh_debug')) {
+         debug($checked, 'render $checked ende');
+         debugEnd();
+       } 
+       return $checked;
     }
 }
