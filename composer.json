@@ -1,19 +1,16 @@
 {
     "name": "od/registeraddress-categories",
     "type": "typo3-cms-extension",
-    "description": "",
+    "description": "Adds categories to the register address form",
+    "version": "1.0.0",
     "authors": [],
     "require": {
-        "typo3/cms-core": "^9.5.0"
+        "typo3/cms-core": "^9.5.0",
+        "afm/registeraddress": "^2.0.1"
     },
     "autoload": {
         "psr-4": {
             "OD\\RegisteraddressCategories\\": "Classes"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "OD\\RegisteraddressCategories\\Tests\\": "Tests"
         }
     },
     "replace": {
