@@ -6,7 +6,7 @@
     "authors": [],
     "require": {
         "typo3/cms-core": "^12.4",
-        "afm/registeraddress": "^3.0.0"
+        "afm/registeraddress": "^3.0.1"
     },
     "autoload": {
         "psr-4": {
